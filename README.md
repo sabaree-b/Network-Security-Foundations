@@ -8,6 +8,8 @@ The Process: Initially, the switch has no record of connected devices. By initia
 
 Observation: After a successful ping between PC0 and PC1, the switch dynamically mapped the MAC addresses to ports Fa0/1 and Fa0/2.
 
+![MAC Address Table Population](images/MAC_Address_Table_Population.png)
+
 Figure 1: Verified CAM table state showing learned MAC addresses after network traffic.
 
 Lab 2: Inter-Subnet Communication Failure The Problem: Testing the boundaries of a Layer 2 domain.
@@ -15,6 +17,8 @@ Lab 2: Inter-Subnet Communication Failure The Problem: Testing the boundaries of
 Finding: Communication between the 192.168.1.x and 10.x.x.x subnets failed despite a healthy physical connection to the same switch.
 
 Technical Reason: Without a Layer 3 Gateway, devices cannot route traffic outside their local subnet boundaries. This lab proves that switches operate purely on physical addresses and do not understand logical IP routing.
+
+![Subnet Isolation Failure](images/Subnet_Isolation_Failure.png)
 
 Figure 2: ICMP failure (Request Timed Out) demonstrating logical network isolation.
 
@@ -28,6 +32,11 @@ Configured Default Gateways on all end-devices to provide an "exit path" for non
 
 Outcome: Achieved 100% end-to-end connectivity.
 
+![Successful Inter-Subnet Routing](images/Successful_Inter-Subnet_Routing.png)
+
 Figure 3: Successful ping across subnets after establishing a Layer 3 path.
 
 Challenges Faced & Debugging During the initial setup of Lab 3, the ping to 10.0.0.1 failed consistently. Through systematic troubleshooting, I identified that the Default Gateway on the source PC was missing. This prevented the return traffic from finding its way back. Correcting this resolved the issue and solidified my understanding of bidirectional traffic flow.
+
+![Multi-Subnet Network Topology](images/Multi-Subnet_Network_Topology.png)
+[Download the Packet Tracer Lab File Here](Inter-Subnet-Routing-Lab.pkt)
